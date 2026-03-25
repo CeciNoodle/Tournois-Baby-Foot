@@ -32,7 +32,13 @@ Représente les administrateurs du site. Un utilisateur ordinaire n'a pas besoin
 
 ### Table `tournois`
 
-Un tournoi est créé par un administrateur. Il passe par plusieurs statuts au cours de son cycle de vie.
+Un tournoi est créé par un administrateur. Un tournoi peut avoir 4 statuts : ouvert, complet, terminé, annulé.
+
+**Ouvert** : Un utilisateur peut s'inscrire.
+**Complet** :  Un utilisateur ne peut pas s'inscrire, mais un administrateur authentifié peut générer des matchs.
+**Termine** :  La date_fin du tournoi a dépassé la date d'aujourd'hui.
+**Annule** : Un administrateur peut annuler un tournoi si celui-ci a le statut ouvert ou complet.
+
 
 **Cycle de vie du statut :**
 
@@ -232,7 +238,7 @@ Aucune authentification requise.
 
 ---
 
-## 6. Fonctionnalités notables
+## 6. Fonctionnalités
 
 ### Génération automatique des matchs (round-robin)
 
