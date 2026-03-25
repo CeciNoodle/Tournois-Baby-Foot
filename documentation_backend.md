@@ -72,7 +72,7 @@ Un match oppose exactement deux équipes appartenant au même tournoi.
 | Passer le statut à `annule`                   | Statut actuel = `ouvert` ou `complet`    |
 | Ajouter une équipe à un tournoi               | Statut = `ouvert`                        |
 | Générer les matchs                            | Statut = `complet`, ≥ 2 équipes          |
-| Saisir / modifier les scores                  | Aujourd'hui ∈ [date_debut, date_fin]     |
+| Saisir / modifier les scores                  |  date_debut< Aujourd'hui< date_fin       |
 | Déclencher la clôture des tournois expirés    | Toujours                                 |
 
 ### Utilisateur non inscrit (public)
@@ -139,7 +139,7 @@ Toutes ces routes requièrent un `accessToken` valide avec `role = admin`.
 **Corps de `POST /tournois` et `PUT /tournois/:id` :**
 ```json
 {
-  "nom": "Tournoi Printemps",
+  "nom": "Tournoi 1",
   "description": "Tournoi annuel de baby-foot",
   "date_debut": "2026-04-01",
   "date_fin": "2026-04-30"
@@ -163,13 +163,13 @@ Valeurs acceptées : `complet`, `annule`.
 **Corps :**
 ```json
 {
-  "nom": "Les Invincibles",
-  "nom_joueur1": "Dupont",
-  "prenom_joueur1": "Jean",
-  "nom_joueur2": "Martin",
-  "prenom_joueur2": "Pierre",
+  "nom": "pseud equipe",
+  "nom_joueur1": "tomassi",
+  "prenom_joueur1": "cecilia",
+  "nom_joueur2": "jon",
+  "prenom_joueur2": "jon",
   "email": "contact@exemple.com",
-  "telephone": "0612345678"
+  "telephone": "0600000000"
 }
 ```
 
