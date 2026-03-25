@@ -32,23 +32,13 @@ Représente les administrateurs du site. Un utilisateur ordinaire n'a pas besoin
 
 ### Table `tournois`
 
-Un tournoi est créé par un administrateur. Un tournoi peut avoir 4 statuts : ouvert, complet, terminé, annulé.
+Un tournoi est créé par un administrateur. Un tournoi peut avoir 4 statuts : ouvert, complet, terminé, annulé.  
+**Ouvert** : Un utilisateur peut s'inscrire.  
+**Complet** : Un utilisateur ne peut pas s'inscrire, mais un administrateur authentifié peut générer des matchs.  
+**Terminé** : La date_fin du tournoi a dépassé la date d'aujourd'hui.  
+**Annulé** : Un administrateur peut annuler un tournoi si celui-ci a le statut ouvert ou complet.
 
-**Ouvert** : Un utilisateur peut s'inscrire.
-**Complet** :  Un utilisateur ne peut pas s'inscrire, mais un administrateur authentifié peut générer des matchs.
-**Termine** :  La date_fin du tournoi a dépassé la date d'aujourd'hui.
-**Annule** : Un administrateur peut annuler un tournoi si celui-ci a le statut ouvert ou complet.
 
-
-**Cycle de vie du statut :**
-
-```
-ouvert ──→ complet ──→ termine  (via check-expired, uniquement si statut = complet et date_fin dépassée)
-  │             └──→ annule
-  └──────────────→ annule
-```
-
----
 
 ### Table `equipes`
 
@@ -226,8 +216,8 @@ Aucune authentification requise.
   "matchs": [
     {
       "id": 1,
-      "equipe1_nom": "Les Invincibles",
-      "equipe2_nom": "Les Challengers",
+      "equipe1_nom": "Evangelion 01",
+      "equipe2_nom": "Straw Hat",
       "score_equipe1": 0,
       "score_equipe2": 0
     }

@@ -32,6 +32,7 @@ Application de gestion de tournois de baby-foot.
 
 Monte le code source local dans le conteneur : toute modification du code est reflétée **en temps réel** sans reconstruire l'image.
 La base de données n'a **pas de volume persistant** — les données sont perdues à l'arrêt des conteneurs.
+Les **données de test** (`test-data.sql`) sont automatiquement chargées au démarrage.
 
 ```bash
 docker compose -f docker-compose.dev.yml up --build
