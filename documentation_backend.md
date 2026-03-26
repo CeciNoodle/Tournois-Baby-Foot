@@ -20,7 +20,7 @@
 
 ### Schéma MCD de la base de données
 
-![Schéma MCD de la base de données](babyfoot_MCD.png)
+![Schéma MCD de la base de données](MDC.jpg)
 
 ---
 
