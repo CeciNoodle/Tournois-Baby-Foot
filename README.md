@@ -28,21 +28,9 @@ Application de gestion de tournois de baby-foot.
 
 ---
 
-### Développement — `docker-compose.dev.yml`
+### Lancer l'application
 
-Monte le code source local dans le conteneur : toute modification du code est reflétée **en temps réel** sans reconstruire l'image.
-La base de données n'a **pas de volume persistant** — les données sont perdues à l'arrêt des conteneurs.
 Les **données de test** (`test-data.sql`) sont automatiquement chargées au démarrage.
-
-```bash
-docker compose -f docker-compose.dev.yml up --build
-```
-
----
-
-### Production — `docker-compose.yml`
-
-La base de données dispose d'un **volume persistant** (`db_data`) : les données survivent à l'arrêt et au redémarrage des conteneurs.
 
 ```bash
 docker compose up --build
@@ -57,7 +45,7 @@ Arrêter les conteneurs sans supprimer les données :
 docker compose down
 ```
 
-Supprimer les conteneurs **et le volume de la base de données** (toutes les données seront perdues) :
+Supprimer les conteneurs et le volume de la base de données :
 ```bash
 docker compose down -v
 ```

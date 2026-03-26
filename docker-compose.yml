@@ -3,16 +3,12 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile.db
-      args:
-        ENVIRONMENT: prod
     env_file:
       - ./Backend/.env
     environment:
       MYSQL_DATABASE: babyfoot_db
     ports:
       - "3306:3306"
-    volumes:
-      - db_data:/var/lib/mysql
     healthcheck:
       test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$$MYSQL_ROOT_PASSWORD"]
       interval: 10s
@@ -23,16 +19,23 @@ services:
   backend:
     build:
       context: .
-      dockerfile: docker/Dockerfile.backend                 
+      dockerfile: docker/Dockerfile.backend
     env_file:
       - ./Backend/.env
     environment:
       DB_HOST: db
+      CORS_ORIGIN: http://localhost:5173
     ports:
       - "3000:3000"
     depends_on:
       db:
         condition: service_healthy
 
-volumes:
-  db_data:
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend

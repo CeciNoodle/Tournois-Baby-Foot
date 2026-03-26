@@ -23,8 +23,8 @@ const equipeRules = [
     .notEmpty().withMessage('Le prénom du joueur 2 est requis.'),
 
   body('email')
-    .optional({ nullable: true })
     .trim()
+    .notEmpty().withMessage("L'email est requis.")
     .isEmail().withMessage("Format d'email invalide."),
 
   body('telephone')

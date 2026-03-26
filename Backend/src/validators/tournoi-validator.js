@@ -18,8 +18,8 @@ const createRules = [
     .optional({ nullable: true })
     .isDate().withMessage('Format de date invalide (YYYY-MM-DD).')
     .custom((date_fin, { req }) => {
-      if (req.body.date_debut && date_fin <= req.body.date_debut) {
-        throw new Error('La date de fin doit être postérieure à la date de début.');
+      if (req.body.date_debut && date_fin < req.body.date_debut) {
+        throw new Error('La date de fin ne peut pas être antérieure à la date de début.');
       }
       return true;
     }),
@@ -43,8 +43,8 @@ const updateRules = [
     .optional({ nullable: true })
     .isDate().withMessage('Format de date invalide (YYYY-MM-DD).')
     .custom((date_fin, { req }) => {
-      if (req.body.date_debut && date_fin <= req.body.date_debut) {
-        throw new Error('La date de fin doit être postérieure à la date de début.');
+      if (req.body.date_debut && date_fin < req.body.date_debut) {
+        throw new Error('La date de fin ne peut pas être antérieure à la date de début.');
       }
       return true;
     }),

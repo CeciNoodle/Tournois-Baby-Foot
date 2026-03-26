@@ -5,7 +5,7 @@ RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 WORKDIR /app
 
 COPY Backend/package*.json ./
-RUN npm install --omit=dev
+RUN npm install
 
 COPY Backend/src ./src
 
@@ -15,4 +15,4 @@ USER appuser
 
 EXPOSE 3000
 
-CMD ["node", "src/app.js"]
+CMD ["npx", "nodemon", "--legacy-watch", "src/app.js"]

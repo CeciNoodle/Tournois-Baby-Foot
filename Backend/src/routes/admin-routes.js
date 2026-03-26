@@ -8,7 +8,7 @@ const { equipeRules }                           = require('../validators/equipe-
 const { scoreRules }                            = require('../validators/match-validator');
 
 const { createTournoi, updateTournoi, deleteTournoi, updateStatut, checkExpired } = require('../controllers/tournoi-controller');
-const { addEquipeAdmin }                                                           = require('../controllers/equipe-controller');
+const { addEquipeAdmin, getEquipesByTournoi }                                      = require('../controllers/equipe-controller');
 const { generateMatches, updateScore }                                             = require('../controllers/match-controller');
 
 router.use(verifyToken, isAdmin);
@@ -21,6 +21,7 @@ router.patch('/tournois/:id/statut',        statutRules,  validate, updateStatut
 router.post('/tournois/check-expired',                              checkExpired);
 
 // Équipes (admin)
+router.get('/tournois/:id/equipes',                                  getEquipesByTournoi);
 router.post('/tournois/:id/equipes',        equipeRules,  validate, addEquipeAdmin);
 
 // Matchs

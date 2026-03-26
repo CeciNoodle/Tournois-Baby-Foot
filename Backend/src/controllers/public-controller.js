@@ -6,7 +6,7 @@ const AppError = require('../utils/AppError');
 async function getTournois(req, res, next) {
   try {
     const { statut } = req.query;
-    const allowed = ['ouvert', 'complet', 'termine'];
+    const allowed = ['ouvert', 'complet', 'termine', 'annule'];
 
     if (statut && !allowed.includes(statut)) {
       throw new AppError(`Statut invalide. Valeurs acceptées : ${allowed.join(', ')}.`, 400);

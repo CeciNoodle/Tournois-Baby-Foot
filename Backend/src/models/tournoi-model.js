@@ -54,7 +54,7 @@ const Tournoi = {
       return rows;
     }
     const [rows] = await db.query(
-      "SELECT * FROM tournois WHERE statut IN ('ouvert', 'complet', 'termine') ORDER BY date_debut DESC"
+      'SELECT * FROM tournois ORDER BY date_debut DESC'
     );
     return rows;
   },

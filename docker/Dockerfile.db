@@ -1,16 +1,9 @@
 FROM mysql:8.0
 
-ARG ENVIRONMENT=prod
-
 COPY database/init.sql      /docker-entrypoint-initdb.d/01-init.sql
-COPY database/test-data.sql /tmp/test-data.sql
+COPY database/test-data.sql /docker-entrypoint-initdb.d/02-test-data.sql
 
 RUN chmod 644 /docker-entrypoint-initdb.d/01-init.sql && \
-    if [ "$ENVIRONMENT" != "prod" ]; then \
-        mv /tmp/test-data.sql /docker-entrypoint-initdb.d/02-test-data.sql && \
-        chmod 644 /docker-entrypoint-initdb.d/02-test-data.sql; \
-    else \
-        rm -f /tmp/test-data.sql; \
-    fi
+    chmod 644 /docker-entrypoint-initdb.d/02-test-data.sql
 
 EXPOSE 3306

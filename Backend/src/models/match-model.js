@@ -1,7 +1,7 @@
 const db = require('../config/db');
 
 const Match = {
-  // Génère tous les matchs round-robin pour un tournoi (chaque équipe rencontre toutes les autres)
+  // Génère tous les matchs pour un tournoi (chaque équipe rencontre toutes les autres)
   async generateRoundRobin(tournoi_id, equipes) {
     const values = [];
     for (let i = 0; i < equipes.length; i++) {

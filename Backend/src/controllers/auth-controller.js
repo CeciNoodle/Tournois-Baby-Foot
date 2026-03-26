@@ -39,6 +39,7 @@ async function login(req, res, next) {
       httpOnly: true,
       secure:   process.env.NODE_ENV === 'production',
       sameSite: 'Strict',
+      path:     '/',
       maxAge:   7 * 24 * 60 * 60 * 1000,
     });
 
@@ -74,7 +75,7 @@ async function refresh(req, res, next) {
 
 // POST /api/auth/logout
 function logout(req, res) {
-  res.clearCookie('refreshToken', { httpOnly: true, sameSite: 'Strict' });
+  res.clearCookie('refreshToken', { httpOnly: true, sameSite: 'Strict', path: '/' });
   return res.json({ message: 'Déconnexion réussie.' });
 }
 

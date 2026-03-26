@@ -1,5 +1,8 @@
 function errorHandler(err, req, res, next) {
-  console.error(`[ERROR] ${err.name || 'Error'}: ${err.message}`)
+  const status = err.status || 500;
+  if (status >= 500) {
+    console.error(`[ERROR] ${err.name || 'Error'}: ${err.message}`);
+  }
  
 
   if (err.name === 'JsonWebTokenError' || err.name === 'TokenExpiredError') {

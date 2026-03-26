@@ -1,10 +1,7 @@
--- Base de données
+
 CREATE DATABASE IF NOT EXISTS babyfoot_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE babyfoot_db;
 
--- =====================
--- TABLES
--- =====================
 
 CREATE TABLE IF NOT EXISTS utilisateur (
     id              INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -23,8 +20,6 @@ CREATE TABLE IF NOT EXISTS tournois (
     utilisateur_id  INT UNSIGNED NOT NULL
 );
 
--- Les joueurs n'ont pas besoin de s'inscrire sur le site :
--- leurs coordonnées sont enregistrées directement ici (joueur1 + joueur2)
 CREATE TABLE IF NOT EXISTS equipes (
     id              INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nom             VARCHAR(255) NOT NULL,
@@ -32,7 +27,7 @@ CREATE TABLE IF NOT EXISTS equipes (
     prenom_joueur1  VARCHAR(100) NOT NULL,
     nom_joueur2     VARCHAR(100) NOT NULL,
     prenom_joueur2  VARCHAR(100) NOT NULL,
-    email           VARCHAR(255),
+    email           VARCHAR(255) NOT NULL,
     telephone       VARCHAR(20),
     tournoi_id      INT UNSIGNED NOT NULL
 );
@@ -46,9 +41,8 @@ CREATE TABLE IF NOT EXISTS matchs (
     score_equipe2   INT UNSIGNED DEFAULT 0
 );
 
--- =====================
+
 -- FOREIGN KEYS
--- =====================
 
 ALTER TABLE tournois
     ADD CONSTRAINT fk_tournois_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id) ON DELETE RESTRICT;
@@ -62,13 +56,11 @@ ALTER TABLE matchs
     ADD CONSTRAINT fk_matchs_equipe2  FOREIGN KEY (equipe2_id)  REFERENCES equipes(id)  ON DELETE RESTRICT,
     ADD CONSTRAINT chk_equipes_differentes CHECK (equipe1_id <> equipe2_id);
 
--- =====================
--- DONNÉES INITIALES
--- =====================
 
--- Admin mot de passe: qwerty
+
+-- Admin mot de passe: qwertyqwerty
 INSERT INTO utilisateur (email, mot_de_passe, role) VALUES (
     'admin@example.com',
-    '$2a$12$z.tLNkB34d3GqN0k5miGgO0caGOmOnWHs0MjQ.Pwf.USiEdNmXKZW',
+    '$2a$12$KfQNnoBE3SVe/nYx5hEyQOnbAN23.5ts2OiN1XM2fFy5PagcJVq5O',
     'admin'
 );

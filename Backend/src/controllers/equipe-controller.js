@@ -50,4 +50,17 @@ async function registerEquipe(req, res, next) {
   }
 }
 
-module.exports = { addEquipeAdmin, registerEquipe };
+// GET /api/admin/tournois/:id/equipes
+async function getEquipesByTournoi(req, res, next) {
+  try {
+    const tournoi = await Tournoi.findById(req.params.id);
+    if (!tournoi) throw new AppError('Tournoi introuvable.', 404);
+
+    const equipes = await Equipe.findByTournoi(req.params.id);
+    return res.json({ equipes });
+  } catch (err) {
+    next(err);
+  }
+}
+
+module.exports = { addEquipeAdmin, registerEquipe, getEquipesByTournoi };
