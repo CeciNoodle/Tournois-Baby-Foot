@@ -88,15 +88,14 @@ Base URL : `/api/auth`
 
 | Méthode | Route      | Description                                                  |
 |---------|------------|--------------------------------------------------------------|
-| POST    | `/login`   | Connexion admin. Retourne un `accessToken` (JWT) et pose un cookie `refreshToken` (HTTP-only). |
-| POST    | `/refresh` | Génère un nouvel `accessToken` à partir du `refreshToken` en cookie. |
-| POST    | `/logout`  | Supprime le cookie `refreshToken`.                           |
+| POST    | `/login`   | Connexion admin. Retourne un `accessToken` (JWT, durée 1 h). |
+| POST    | `/logout`  | Déconnexion (côté client, supprime le token du localStorage). |
 
 **Corps de `/login` :**
 ```json
 {
   "email": "admin@example.com",
-  "password": "qwerty"
+  "password": "qwertyqwerty"
 }
 ```
 

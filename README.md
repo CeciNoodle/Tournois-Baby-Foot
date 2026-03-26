@@ -49,3 +49,10 @@ Supprimer les conteneurs et le volume de la base de données :
 ```bash
 docker compose down -v
 ```
+
+### Données de test pour le login admin
+
+{
+  "email": "admin@example.com",
+  "password": "qwertyqwerty"
+}

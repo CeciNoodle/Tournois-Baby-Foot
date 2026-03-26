@@ -5,6 +5,3 @@ export const login = (email, password) =>
 
 export const logout = () =>
   api.post('/auth/logout').then(r => r.data);
-
-export const refresh = () =>
-  api.post('/auth/refresh').then(r => r.data);

@@ -7,11 +7,11 @@ USE babyfoot_db;
 -- id 5 : terminé - 4 équipes → 6 matchs combinés (avec scores)
 
 INSERT INTO tournois (nom, description, date_debut, date_fin, statut, utilisateur_id) VALUES
-('Tournoi 1', 'Tournoi Akira', '2026-04-05', '2026-04-20', 'ouvert',  1),
-('Tournoi 2', 'Tournoi Demon Slayer', '2026-04-10', '2026-04-25', 'ouvert',  1),
-('Tournoi 3', 'Tournoi One Piece',     '2026-05-01', '2026-05-15', 'complet', 1),
-('Tournoi 4', 'Tournoi Evangelion',    '2026-05-10', '2026-05-25', 'complet', 1),
-('Tournoi 5', 'Tournoi JoJo',          '2026-01-10', '2026-02-28', 'termine', 1);
+('Tournoi 1', 'Tournoi Akira', '2026-04-05', '2026-04-05', 'ouvert',  1),
+('Tournoi 2', 'Tournoi Demon Slayer', '2026-04-10', '2026-04-11', 'ouvert',  1),
+('Tournoi 3', 'Tournoi One Piece',     '2026-05-01', '2026-05-02', 'complet', 1),
+('Tournoi 4', 'Tournoi Evangelion',    '2026-05-11', '2026-05-11', 'complet', 1),
+('Tournoi 5', 'Tournoi JoJo',          '2026-01-10', '2026-02-11', 'termine', 1);
 
 -- Tournoi 3 : One Piece (6 équipes)
 INSERT INTO equipes (nom, nom_joueur1, prenom_joueur1, nom_joueur2, prenom_joueur2, email, tournoi_id) VALUES
