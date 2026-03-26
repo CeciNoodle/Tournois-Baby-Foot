@@ -38,9 +38,9 @@ INSERT INTO equipes (nom, nom_joueur1, prenom_joueur1, nom_joueur2, prenom_joueu
 
 -- Matchs uniquement pour le tournoi 5 (terminé, avec scores)
 INSERT INTO matchs (tournoi_id, equipe1_id, equipe2_id, score_equipe1, score_equipe2) VALUES
-(5, 7, 8, 10,  7),
-(5, 7, 9,  5, 10),
-(5, 7, 10,  8,  6),
-(5, 8, 9, 10,  3),
-(5, 8, 10,  7,  9),
-(5, 9, 10,  6, 10);
+(5, 11, 12, 10,  7),
+(5, 11, 13,  5, 10),
+(5, 11, 14,  8,  6),
+(5, 12, 13, 10,  3),
+(5, 12, 14,  7,  9),
+(5, 13, 14,  6, 10);
