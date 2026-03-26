@@ -59,14 +59,15 @@ const Tournoi = {
     return rows;
   },
 
-  // Passe à 'termine' tous les tournois dont date_fin est dépassée
+  // Passe à 'termine' tous les tournois dont date_fin est dépassée et qui ont au moins un match généré
   async closeExpired() {
     const [result] = await db.query(
       `UPDATE tournois
        SET statut = 'termine'
        WHERE statut = 'complet'
          AND date_fin IS NOT NULL
-         AND date_fin < CURDATE()`
+         AND date_fin < CURDATE()
+         AND EXISTS (SELECT 1 FROM matchs WHERE matchs.tournoi_id = tournois.id)`
     );
     return result.affectedRows;
   },
