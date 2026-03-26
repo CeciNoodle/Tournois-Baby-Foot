@@ -218,7 +218,7 @@
       <h1 class="text-2xl font-bold text-[#4A8B87]">Tableau de bord</h1>
       <div class="flex gap-2">
         <button @click="handleCheckExpired" :disabled="checkingExpired" class="text-sm px-3 py-1.5 border border-gray-300 rounded text-gray-600 hover:bg-gray-50 disabled:opacity-50">
-          {{ checkingExpired ? 'Vérification...' : 'Clôturer expirés' }}
+          {{ checkingExpired ? 'Vérification...' : 'Clôturer les tournois expirés' }}
         </button>
         <button @click="openCreateTournoi" class="text-sm px-4 py-1.5 bg-[#4A8B87] text-white rounded hover:bg-[#3d746f]">
           + Nouveau tournoi
