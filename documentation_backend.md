@@ -20,7 +20,7 @@
 
 ### Schéma MCD de la base de données
 
-![Schéma MCD de la base de données](MDC.jpg)
+![Schéma MCD de la base de données](MCD.jpg)
 
 ---
 
